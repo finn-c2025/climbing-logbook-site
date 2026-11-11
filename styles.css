@@ -35,6 +35,8 @@ a{color:inherit}
 .card h2{font-weight:400;font-size:clamp(2rem,3.6vw,3.2rem);letter-spacing:-.04em;line-height:1.04;margin:.7rem 0 1rem}
 .card p:not(.eyebrow){color:var(--text2);font-size:clamp(1rem,1.3vw,1.2rem);line-height:1.5}
 .note{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:.72rem;color:var(--text3);z-index:4}
+.progress{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--hair);z-index:6}
+.progress i{display:block;height:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
 .outro{min-height:80svh;display:grid;place-content:center;text-align:center;gap:1rem;padding:20vh 6vw}
 .outro h2{font-weight:400;font-size:clamp(2rem,5vw,4rem);letter-spacing:-.04em}
 .outro p:last-child{color:var(--text2)}
@@ -43,11 +45,16 @@ a{color:inherit}
 /* scroll mode: story height is set by story.js from the clip lengths */
 .mode-scroll .stage{position:sticky;top:0}
 .mode-scroll .phone-wrap{transform:translate3d(-50%,-50%,0)}
-.mode-scroll .cards{position:absolute;left:54vw;top:50%;width:min(30rem,38vw);transform:translateY(-50%);height:0}
-.mode-scroll .card{position:absolute;left:0;top:0;transform:translateY(-50%);opacity:0;will-change:transform,opacity}
+.mode-scroll .intro h1{font-size:clamp(2.4rem,5.2vw,4.4rem);margin:.4rem 0 .4rem}
+.mode-scroll .intro h1 br{display:none}
+.mode-scroll .cards{position:absolute;inset:0;pointer-events:none}
+.mode-scroll .card{position:absolute;top:50%;width:min(30rem,36vw);transform:translateY(-50%);visibility:hidden}
+.mode-scroll .card.r{left:56vw}
+.mode-scroll .card.l{left:8vw}
+.mode-scroll .card>*{will-change:transform,opacity,filter;opacity:0}
 /* stack mode: mobile and reduced motion */
 .mode-stack .stage{height:auto;overflow:visible}
-.mode-stack .glow{display:none}
+.mode-stack .glow,.mode-stack .progress{display:none}
 .mode-stack .intro{position:relative;padding:92px 22px 24px}
 .mode-stack .phone-wrap{position:sticky;top:64px;left:auto;transform:none;height:min(50svh,430px);z-index:5;display:flex;justify-content:center;background:linear-gradient(var(--bg) 82%,rgba(3,3,4,0))}
 .mode-stack .phone{--ph:min(48svh,420px);--sy:18px;--sb:36px}
